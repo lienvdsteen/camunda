@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 require_relative 'camunda/version'
+require_relative 'camunda/configuration'
+require_relative 'camunda/util'
+require_relative 'camunda/operate'
 
 module Camunda
-  class Error < StandardError; end
-  # Your code goes here...
+  extend Configuration
 end

@@ -2,7 +2,7 @@
 
 module Camunda
   module Operate
-    class OAuthToken < OAuthResource
+    class OAuthToken < Camunda::OAuthResource
       def self.create
         uri = Camunda.authorization_url
         payload = {

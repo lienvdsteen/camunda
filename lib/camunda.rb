@@ -3,7 +3,9 @@
 require_relative 'camunda/version'
 require_relative 'camunda/configuration'
 require_relative 'camunda/util'
+require_relative 'camunda/o_auth_resource'
 require_relative 'camunda/operate'
+require_relative 'camunda/console'
 
 module Camunda
   extend Configuration

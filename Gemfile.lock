@@ -5,6 +5,7 @@ PATH
       json
       net-sftp
       rest-client (~> 2.0)
+      zeebe-client (~> 0.17.0)
 
 GEM
   remote: https://rubygems.org/
@@ -13,6 +14,12 @@ GEM
     diff-lcs (1.5.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    google-protobuf (3.21.5-x86_64-darwin)
+    googleapis-common-protos-types (1.4.0)
+      google-protobuf (~> 3.14)
+    grpc (1.48.0-x86_64-darwin)
+      google-protobuf (~> 3.19)
+      googleapis-common-protos-types (~> 1.0)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -69,6 +76,8 @@ GEM
       unf_ext
     unf_ext (0.0.8.2)
     unicode-display_width (2.1.0)
+    zeebe-client (0.17.0)
+      grpc (~> 1.32)
 
 PLATFORMS
   x86_64-darwin-20

@@ -2,8 +2,8 @@
 
 module Camunda
   module Configuration
-    VALID_OPTIONS_KEYS = %i[api_version client_id client_secret audience authorization_url operate_audience
-                            operate_base_url console_audience console_base_url].freeze
+    VALID_OPTIONS_KEYS = %i[api_version client_id client_secret zeebe_audience authorization_url operate_audience
+                            operate_base_url console_audience console_base_url zeebe_url].freeze
     attr_accessor(*VALID_OPTIONS_KEYS)
 
     # Sets all configuration options to their default values
@@ -27,7 +27,8 @@ module Camunda
       self.api_version = 'v1'
       self.client_id = ENV.fetch('CAMUNDA_CLIENT_ID', nil)
       self.client_secret = ENV.fetch('CAMUNDA_CLIENT_SECRET', nil)
-      self.audience = ENV.fetch('CAMUNDA_AUDIENCE', nil)
+      self.zeebe_audience = ENV.fetch('CAMUNDA_AUDIENCE', nil)
+      self.zeebe_url = ENV.fetch('CAMUNDA_ZEEBE_URL', nil)
       self.authorization_url = ENV.fetch('CAMUNDA_AUTHORIZATION_URL', nil)
       self.operate_audience = ENV.fetch('CAMUNDA_OPERATE_AUDIENCE', 'operate.camunda.io')
       self.operate_base_url = ENV.fetch('CAMUNDA_OPERATE_BASE_URL', nil)

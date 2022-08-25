@@ -32,5 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'json'
   spec.add_runtime_dependency 'net-sftp'
   spec.add_runtime_dependency 'rest-client', '~> 2.0'
+  spec.add_dependency 'zeebe-client', '~> 0.17.0'
+
   spec.metadata['rubygems_mfa_required'] = 'true'
 end

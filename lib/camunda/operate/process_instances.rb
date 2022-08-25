@@ -8,7 +8,7 @@ module Camunda
       end
 
       def self.all_active
-        params = { "filter": { "state": "ACTIVE" } }
+        params = { filter: { state: 'ACTIVE' } }
         search(params)
       end
 

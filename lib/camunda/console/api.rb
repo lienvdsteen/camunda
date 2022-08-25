@@ -7,7 +7,7 @@ require 'base64'
 require 'csv'
 
 module Camunda
-  module Operate
+  module Console
     class API
       def self.get(endpoint, params = {})
         url = build_url(endpoint, params)
@@ -28,7 +28,7 @@ module Camunda
       end
 
       def self.build_url(endpoint, params = {})
-        url = "#{Camunda.operate_base_url}/#{Camunda.api_version}/#{endpoint}"
+        url = "#{Camunda.console_base_url}/#{Camunda.api_version}/#{endpoint}"
         url += "?#{URI.encode_www_form(params)}" unless params.empty?
 
         url
@@ -36,12 +36,13 @@ module Camunda
 
       def self.headers
         {
-          Authorization: "Bearer #{oauth_token}"
+          Authorization: "Bearer #{oauth_token}",
+          Accept: 'application/json'
         }
       end
 
       def self.oauth_token
-        Camunda::Operate::OAuthToken.create['access_token']
+        Camunda::Console::OAuthToken.create['access_token']
       end
     end
   end

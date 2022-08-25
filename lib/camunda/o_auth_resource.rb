@@ -4,7 +4,6 @@ module Camunda
   class OAuthResource
     def self.create_by_uri(uri:, payload:)
       headers = {
-        authorization: "Basic #{Base64.strict_encode64("#{Cloudmunda.client_id}:#{Cloudmunda.client_secret}")}",
         'Content-Type': 'application/json'
       }
 

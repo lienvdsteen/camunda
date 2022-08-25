@@ -16,6 +16,17 @@ module Camunda
         JSON.parse(response.body)
       end
 
+      def self.post(endpoint, params = {})
+        url = build_url(endpoint)
+        response = RestClient.post(
+          url,
+          params.to_json,
+          headers.merge({'Content-Type': 'application/json'})
+        )
+
+        JSON.parse(response.body) if response.code == 200
+      end
+
       def self.build_url(endpoint, params = {})
         url = "#{Camunda.operate_base_url}/#{Camunda.api_version}/#{endpoint}"
         url += "?#{URI.encode_www_form(params)}" unless params.empty?

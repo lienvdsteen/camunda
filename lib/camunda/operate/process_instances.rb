@@ -7,6 +7,11 @@ module Camunda
         post('process-instances/search', params)
       end
 
+      def self.all_active
+        params = { "filter": { "state": "ACTIVE" } }
+        search(params)
+      end
+
       def self.find(instance_id)
         get("process-instances/#{instance_id}")
       end

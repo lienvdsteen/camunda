@@ -3,7 +3,7 @@
 require_relative 'lib/camunda/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'camunda'
+  spec.name = 'camundapi'
   spec.version = Camunda::VERSION
   spec.authors = ['Lien Van Den Steen']
   spec.email = ['lienvandensteen@gmail.com']

@@ -52,7 +52,9 @@ Implements the API endpoints you can find [here](https://docs.camunda.io/docs/ap
 This part is a work in progress but the foundations are here to add other classes/methods. It follows the same approach as how we've implemented the Operate API - that is that every entity gets its own class. Use as follows:
 
 ```ruby
-Camunda::Zeebe::ProcessInstances.create({bpmnProcessId: 'id-of-a-process', version: -1})
+Camunda::Zeebe::ProcessInstances.create(process_id: 'id-of-a-process')
+Camunda::Zeebe::ProcessInstances.create(process_id: 'id-of-a-process', variables: {'operational': true})
+Camunda::Zeebe::ProcessInstances.create(process_id: 'id-of-a-process', variables: {'operational': true}, version: '5')
 ```
 
 ### Console API

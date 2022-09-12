@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    camundapi (0.2.1)
+    camundapi (0.2.2)
       json
       net-sftp
       rest-client (~> 2.0)

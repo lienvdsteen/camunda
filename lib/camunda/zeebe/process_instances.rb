@@ -9,8 +9,7 @@ module Camunda
           variables: variables.to_json,
           version: version
         }
-        run(:create_process_instance,
-            ::Zeebe::Client::GatewayProtocol::CreateProcessInstanceRequest.new(params))
+        run(:create_process_instance, ::Zeebe::Client::GatewayProtocol::CreateProcessInstanceRequest.new(params))
       end
 
       def self.update_variables(instance_id:, variables:)
@@ -18,8 +17,7 @@ module Camunda
           elementInstanceKey: instance_id,
           variables: variables.to_json
         }
-        run(:set_variables,
-            ::Zeebe::Client::GatewayProtocol::SetVariablesRequest.new(params))
+        run(:set_variables, ::Zeebe::Client::GatewayProtocol::SetVariablesRequest.new(params))
       end
     end
   end

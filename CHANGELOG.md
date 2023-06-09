@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [0.3.0] - 2022-06-09
+
+- Breaking change in `Camunda::Tasklist::UserTasks`: now uses the REST API instead of the graphql API.
+
 ## [0.2.2] - 2022-09-12
 
 - Add `Zeebe::Jobs.add_error` so an error can be added to a job.

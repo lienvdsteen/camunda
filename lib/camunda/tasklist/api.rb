@@ -2,18 +2,13 @@
 
 module Camunda
   module Tasklist
-    class API
-      def self.post(params = {})
-        response = RestClient.post(Camunda.tasklist_base_url, params.to_json, headers)
-        JSON.parse(response.body)
+    class API < ::Camunda::BaseAPI
+      def self.base_url
+        Camunda.tasklist_base_url
       end
 
-      def self.headers
-        oauth_token = Camunda::Tasklist::OAuthToken.create
-        {
-          authorization: "Bearer #{oauth_token['access_token']}",
-          'Content-Type': 'application/json'
-        }
+      def self.oauth_token
+        Camunda::Tasklist::OAuthToken.create['access_token']
       end
     end
   end

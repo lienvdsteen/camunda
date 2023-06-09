@@ -3,31 +3,16 @@
 module Camunda
   module Tasklist
     class UserTasks < API
-      def self.all # rubocop:disable Metrics:MethodLength
-        query = "{
-          tasks(query: { state: CREATED })
-          {
-            id
-            taskDefinitionId
-            name
-            taskState
-            assignee
-            taskState
-            formKey
-            processDefinitionId
-            completionTime
-            processName
-            variables {
-              name
-              value
-            }
-          }
-        }"
-        post(query: query)['data']['tasks']
+      def self.all(params = {})
+        post('tasks/search', params)
       end
 
-      def self.run_mutation(mutation)
-        post(query: mutation)
+      def self.complete_task(task_id, variables = {})
+        patch("tasks/#{task_id}/complete", variables)
+      end
+
+      def self.variables(task_id, params = {})
+        post("tasks/#{task_id}/variables/search", params)
       end
     end
   end

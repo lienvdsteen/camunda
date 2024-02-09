@@ -12,6 +12,10 @@ module Camunda
         run(:create_process_instance, ::Zeebe::Client::GatewayProtocol::CreateProcessInstanceRequest.new(params))
       end
 
+      def self.cancel(processInstanceKey:)
+        run(:cancel_process_instance, ::Zeebe::Client::GatewayProtocol::CancelProcessInstanceRequest.new(processInstanceKey: processInstanceKey))
+      end
+
       def self.update_variables(instance_id:, variables:)
         params = {
           elementInstanceKey: instance_id,
